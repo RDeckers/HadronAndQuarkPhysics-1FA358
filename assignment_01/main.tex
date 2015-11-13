@@ -1,0 +1,36 @@
+\input{../documents-common/preamble.tex}
+\begin{document}
+  \maketitle[Assignment 1]{Quark and Hadron Physics}
+  \section{Relativity and Electrodynamics}
+    \subsection{Four-derivative}
+      Using Feynmann subscript notation:
+      \begin{align}
+        \partial^\mu\left(x\cdot b\right) &= \partial^\mu\left(x^\nu b_\nu\right),\nn
+        &= \partial^\mu_x \left(x\cdot b) + \partial^\mu_b \left(x\cdot b),\nn
+        &= (1, -\vec{1}) \cdot (b^0, \vec b) + (\pdrv[t] {b^0}, -\nabla \vec b)\cdot (t, \vec x),\nn
+        &= (b^0, -\vec b) + 0 \cdot x, \nn
+        &= b^\mu.
+      \end{align}
+      Note that we have had to assume that $b$ is independent of $t$ and $x$ to obtain this result. (only $b$ independent of $x$ was given).
+    \subsection{Relativistic formulation of the Maxwell equations}
+    If we expand
+    \begin{align}
+      \partial_\mu F^{\mu\nu} = j^\nu\nn
+    \end{align}
+    into it's matrix form we obtain
+    \begin{align}
+        \nabla \cdot E = \rho
+    \end{align}
+   In the first component, which is Guass' law. We now turn our attention to the three
+   other components, expanded they read
+   \begin{align}
+     -\pdrv[t] E^1 + \pdrv[x_2]B^3 - \pdrv[x_3]B^2 = j^1\nn
+     -\pdrv[t] E^2 + \pdrv[x_3]B^1 - \pdrv[x_1]B^3 = j^2\nn
+     -\pdrv[t] E^3 + \pdrv[x_1]B^2 - \pdrv[x_2]B^1 = j^3
+   \end{align}
+   which can be written simultanously in vector form as
+   \begin{align}
+     \pdrv[t]{} \vec E =  \nabla \cross \vec B - \vec j,
+   \end{align}
+   which is Ampere's law.
+\end{document}
