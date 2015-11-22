@@ -33,9 +33,93 @@
      \pdrv[t]{} \vec E =  \nabla \cross \vec B - \vec j,
    \end{align}
    which is Ampere's law.
+   Now, we note that:
    \begin{align}
-     F_{\alpha\beta} &= g_{\alpha\mu}g_{\beta\nu}F^{\mu\nu}\nn
-     &=g_{\alpha 0}g_{\beta 0}F^{00} +g_{\alpha i}g_{\beta 0}F^{i0} + g_{\alpha 0}g_{\beta i}F^{0i}+g_{\alpha i}g_{\beta j}F^{ij}
+     \epsilon^{\mu\nu\alpha\beta} \partial_\nu F_{\alpha\beta} &= 0 \nn
+     &= \epsilon^{\mu\nu\alpha\beta}\partial_\nu \left(g^{\mu\alpha}g^{\nu\beta}F^{\mu\nu}\right)
    \end{align}
-   where $i,j \in 1..3$.
+   Contracting the term in parenthesis gives us an explicit expression for $F_{\alpha\beta}$, namely,
+   \begin{align}
+     F_{\alpha\beta} =
+     \begin{pmatrix}
+       0 & -E^1 & - E^2 & -E^3\\
+       E^1 & 0 & B^3 & -B^2\\
+       E^2 & -B^3 & 0 & B^1\\
+       E^3 & B^2 & -B^1 & 0
+     \end{pmatrix}
+   \end{align}
+   If we now consider the case for $\mu = 0$ and contract the remaining variables we find
+   \begin{align}
+     \epsilon^{0\nu\alpha\beta}\partial_\nu F_{\alpha\beta} &= \partial_1\left(F_{23} - F_{32}\right) + \partial_2\left(F_{31}-F_{13}\right)+\partial_3\left(F_{12}-F_{21}\right)\nn
+     &= \Aboxed{2\nabla\cdot\vec B = 0}
+   \end{align}
+   Taking $\mu = 1$ and contracting once more gives us
+   \begin{align}
+    \epsilon^{1\nu\alpha\beta}\partial_\nu F_{\alpha\beta} &= -\partial_0F_{23}+\partial_0F_{32} +\partial_2F_{03} - \partial_2F_{30} -\partial_3F_{02}+\partial_3F_{20}\nn
+    &= \partial_0 B^1 +\partial_2E^3 -\partial_3E^2\nn
+    &= \left(\pdrv[t]{\vec B} + \nabla\cross\vec E\right)^1
+   \end{align}
+   doing the same for $\mu = 2$ and $\mu = 3$ we find the other spatial coordinates of the above expression, leading us to conclude
+   \begin{align}
+      \left(\pdrv[t]{\vec B} + \nabla\cross {\vec E}\right) = 0
+   \end{align}
+   Finally, from $\partial_\mu j^\mu = 0$ it immidiatly follows from contraction that
+   \begin{align}
+     \pdrv[t]\rho = \nabla\cdot\vec j = 0.
+   \end{align}
+   \subsection{Electromagnetic potential}
+   Given
+   \begin{align}
+     F^{\mu\nu}= \partial^\mu A^\nu - \partial^\nu A^\mu
+   \end{align}
+   I should be noted that both sides of this equation are antisymmetric so $\mu\nu = 01 = 10, \mu\nu = 23 = 32$ etc.
+   If we take $\mu = 0$ and contract over $\nu$ we obtain:
+   \begin{align}
+    \vec E = -\pdrv[t]{} \vec A-\nabla\phi.
+   \end{align}
+   And the same for $\mu\nu = \mu 0$.
+   \par Now taking all permutations for which $\mu < \nu$ ($\mu = \nu$ is the trivial case) we find:
+   \begin{align}
+     F^{12} = -B^3 &=\partial^1A^2-\partial^2A^1\nn
+     F^{13} = B^2 &= \partial^1A^3-\partial^3A^1\nn
+     F^{23} = B^1 &= \partial^2A^3-\partial^3A^2
+   \end{align}
+   which can be collected to form the vector expression
+   \begin{align}
+     \vec B = \nabla \cross \vec A
+   \end{align}
+   \subsection{Principle of minimal substitution}
+   If
+   \begin{align}
+     H = \frac{1}{2m}\left(\vec p^2+q^2\vec A^2-2q\vec p \cdot \vec A\right)+q\phi
+   \end{align}
+    then
+    \begin{align}
+      \dot x^i = v^i = \pdrv[p^i]H \to \frac{1}{m}\left(\vec p -q\vec A\right)
+    \end{align}
+    which can be rewriten as
+   \begin{align}
+     \vec p = m \vec v + q \vec A
+   \end{align}
+    When we derive this expression w.r.t. time it leads to
+  \begin{align}
+     m\vec a = \vec{{\dot p}}-q\drv[t]{\vec A}
+  \end{align}
+    Using the second Hamiltonian equation we find that
+    \begin{align}
+      {\dot p}_i = -\pdrv[\vec x]H &= \frac{q}{m}\left(\vec p -\vec A\right)\cdot \pdrv[x_i]{\vec A} - q\pdrv[x_i]{\vec \phi}\nn
+      &= q\vec v\cdot \pdrv[x_i]{\vec A} - q\pdrv[x_i]{\vec \phi}
+    \end{align}
+    Combining these last two equations leads to
+    \begin{align}
+      m a_i &= q\vec v\cdot \pdrv[x_i]{\vec A} - q\pdrv[x_i]{\vec \phi}-q\left(\drv[t]{\vec A}\right)_i\nn
+      &=q\vec v\cdot \pdrv[x_i]{\vec A} - q\pdrv[x_i]{\vec \phi}-q\left(\pdrv[t]{A_i} + \vec v\cdot\nabla A_i\right)
+    \end{align}
+    We have previously shown this can be rewritten as:
+    \begin{align}
+      ma_i &= qE_i -q \left(\left(\vec v\cdot\nabla\right)A_i-\vec v\cdot\pdrv[x_i]{\vec A}\right)\nn
+      &= qE_i -q v_j\left(\pdrv[x_j]{A_i} - \pdrv[x_i]{A_j}\right)\nn
+      &= qE_i -q v_j\left(\partial^j A^i - \partial^i A^j\right)\nn
+      ma_i &= q\left(E_i - v \cross \vec B\right)_i
+    \end{align}
 \end{document}
