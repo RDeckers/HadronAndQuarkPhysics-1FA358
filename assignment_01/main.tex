@@ -123,7 +123,7 @@
       ma_i &= q\left(E_i - v \cross \vec B\right)_i
     \end{align}
     \section{Three-body phase space}
-    \subsection{}
+    \subsection{Two-body Variables}
     \begin{align}
       \frac{1}{2}\left(m_{12}^2-m_1^2-m_2^2\right) &= \frac{1}{2}\left(\left(p_1+p_2\right)^2-m_1^2-m_2^2\right)\nn
       &= \frac{1}{2}\left(p_1^2+p_2^2+2p_1\cdot p_2-m_1^2-m_2^2\right) \nn
@@ -141,4 +141,26 @@
       &= m_1^2+m_3^2 + 2*\frac{1}{2}\left(M^2-m_{12}^2-m_{23}^2+m_2^2\right)\nn
       &= M^2-m_{12}^2-m_{23}^2+m_1^2+m_2^2+m_3^2
     \end{align}
+    \subsection{Kinematic boundaries $m_{12}$}
+    assume both $m_1$ and $m_2$ are at rest after decay, then
+    \begin{align}
+      m_{12}^{\,2} &= \left(p_1+p_2\right)^2\nn
+      &= m_1^{\,2}+m_2^{\,2}+2p_1\cdot p_2\nn
+      &= m_1^{\,2}+m_2^{\,2}+2(E_1,\vec 0)\cdot (E_2,\vec 0)\nn
+      &= m_1^{\,2}+m_2^{\,2}+2m_1m_2\nn
+      &= (m_1+m_2)^2
+    \end{align}
+    Therefore, because $\vec p_1 = \vec p_2 = \vec 0$ is trivially lower bound on $m_{12}^{\,2}$,
+    \begin{align}
+      \left(m_1+m_2\right)^2 \leq m_{12}^{\,2}
+    \end{align}
+    likewise, assume $m_3$ is at rest after the decay, this is the state in which the maximum amount of energy is availible for $m_{12}$,
+    then because we are working in the frame were $M$ is at rest the total remaining "mass budget" for $m_{12}$ is given by $M-m_3$. This implies that
+    \begin{align}
+      \left(m_1+m_2\right)^2 \leq m_{12}^{\,2} \leq \left(M-m_3\right)^2.
+    \end{align}
+    \subsection{Kinematic boundaries $m_{23}$}
+    
+
+
 \end{document}
